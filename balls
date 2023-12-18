@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+    const int arraySize = 10;
+    int randomNumberArray[arraySize];
+
+    // Seed the random number generator with the current time
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+    // Generate an array of 10 random numbers between 1 and 100
+    for (int i = 0; i < arraySize; ++i) {
+        randomNumberArray[i] = std::rand() % 100 + 1;
+    }
+
+    // Print the generated array
+    std::cout << "Generated Array: ";
+    for (int i = 0; i < arraySize; ++i) {
+        std::cout << randomNumberArray[i] << " ";
+    }
+    std::cout << std::endl;
+
+    // Calculate the average of the random numbers
+    int sum = 0;
+    for (int i = 0; i < arraySize; ++i) {
+        sum += randomNumberArray[i];
+    }
+    double average = static_cast<double>(sum) / arraySize;
+
+    // Print the average
+    std::cout << "Average: " << average << std::endl;
+
+    return 0;
+}
